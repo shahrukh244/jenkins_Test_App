@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+    <div class="dashboard-card">
+        <h1>Welcome, {{ username }}!</h1>
+        <p>This is your personalized dashboard.</p>
+
+        <div class="dashboard-actions">
+            {# Removed: <a href="#">Manage Profile</a> #}
+            {# Removed: <a href="#">View Settings</a> #}
+            {# Removed: <a href="#">Your Orders</a> #}
+            <a href="{{ url_for('logout') }}" class="logout-btn">Log Out</a>
+        </div>
+    </div>
+{% endblock %}

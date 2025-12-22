@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Auth App{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="{{ url_for('index') }}" class="nav-brand">AuthApp</a>
+            {% if 'username' in session %}
+                <a href="{{ url_for('dashboard') }}" class="nav-link">Dashboard</a>
+            {% endif %}
+        </div>
+        <div class="nav-right">
+            {% if 'username' in session %}
+                <span class="nav-user-info">Welcome, {{ session['username'] }}</span>
+                <a href="{{ url_for('logout') }}" class="nav-link nav-logout">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="nav-link">Login</a>
+                <a href="{{ url_for('signup') }}" class="nav-link nav-signup">Sign Up</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="main-wrapper"> {# New wrapper for content centering #}
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

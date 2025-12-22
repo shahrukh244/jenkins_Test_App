@@ -1,0 +1,381 @@
+/* General Resets and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #CCCCCC; /* Light grey text on dark background */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #121212, #000000); /* Deep black to very dark grey gradient */
+    background-size: 400% 400%;
+    animation: gradientBackground 25s ease infinite;
+    padding: 20px;
+}
+
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Navigation Bar */
+nav {
+    width: 100%;
+    max-width: 1000px;
+    background-color: #1A1A1A; /* Darker grey nav bar */
+    padding: 15px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Stronger shadow for depth on dark */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    position: sticky;
+    top: 20px;
+    z-index: 1000;
+    border: 1px solid #2C2C2C; /* Subtle dark border for definition */
+}
+
+.nav-brand {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #EEEEEE; /* Very light grey text for brand */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-brand:hover {
+    color: #BBBBBB; /* Lighter grey on hover */
+}
+
+.nav-link {
+    color: #BBBBBB; /* Light grey for links */
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    background-color: #2A2A2A; /* Dark grey on hover */
+    color: #EEEEEE;
+}
+
+.nav-link.nav-signup {
+    background-color: #3A3A3A; /* Distinct dark grey for signup button */
+    color: #EEEEEE; /* Very light grey text */
+    margin-left: 15px;
+    padding: 10px 20px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link.nav-signup:hover {
+    background-color: #4A4A4A;
+    color: #EEEEEE;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.nav-link.nav-logout {
+    color: #999999; /* Medium grey for logout */
+    margin-left: 15px;
+}
+
+.nav-link.nav-logout:hover {
+    background-color: #2A2A2A;
+    color: #EEEEEE;
+}
+
+.nav-user-info {
+    font-weight: 500;
+    color: #BBBBBB;
+    margin-right: 20px;
+}
+
+/* Main Content Wrapper & Container Card */
+.main-wrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.container {
+    width: 100%;
+    background-color: #1A1A1A; /* Dark grey card background - NO WHITE */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Soft black shadow */
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #CCCCCC; /* Light grey text on dark background */
+    border: 1px solid #2A2A2A; /* Subtle dark border */
+}
+
+/* Flash Messages (Monochromatic with subtle distinction) */
+.flash {
+    width: 100%;
+    padding: 15px 25px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-left: 5px solid; /* Use border for category distinction */
+    color: #CCCCCC; /* Consistent text color for all flashes */
+}
+
+.flash::before {
+    content: 'i'; /* Placeholder. Could be different unicode chars for each type */
+    font-weight: 700;
+    font-size: 1.2em;
+    line-height: 1;
+    display: inline-block;
+}
+
+/* Distinct dark grey backgrounds for flashes */
+.flash.success {
+    background-color: #252525; /* Slightly lighter dark grey */
+    border-color: #4A4A4A; /* Dark border */
+}
+.flash.danger {
+    background-color: #353535; /* Distinctly darker dark grey */
+    border-color: #6A6A6A; /* More prominent dark border */
+}
+.flash.info {
+    background-color: #2B2B2B; /* In-between dark grey */
+    border-color: #5A5A5A;
+}
+.flash.warning {
+    background-color: #383838; /* Another in-between dark grey */
+    border-color: #6A6A6A; /* Similar to danger for visual grouping */
+}
+
+
+/* Headings - Adjusted for dark background */
+h1, h2 {
+    color: #EEEEEE; /* Very light grey for headings on dark background */
+    text-align: center;
+    margin-bottom: 35px;
+    font-weight: 700;
+    font-size: 2.5em;
+    line-height: 1.2;
+}
+
+/* Forms - Adjusted for dark background */
+form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: transparent; /* No background here, container handles it */
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #BBBBBB; /* Light grey for labels */
+    font-size: 0.95em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #3A3A3A; /* Darker grey border */
+    border-radius: 8px;
+    font-size: 1em;
+    color: #EEEEEE; /* Very light grey text for inputs */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: #0A0A0A; /* Deep black input background - NO WHITE */
+}
+
+.form-group input::placeholder {
+    color: #888888; /* Medium grey placeholder */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="email"]:focus {
+    border-color: #666666; /* Medium grey border on focus */
+    box-shadow: 0 0 0 3px rgba(100, 100, 100, 0.2); /* Subtle grey glow */
+    outline: none;
+    background-color: #1A1A1A; /* Slightly lighter dark grey on focus - NO WHITE */
+}
+
+form button {
+    width: 100%;
+    background-color: #333333; /* Dark grey button */
+    color: #EEEEEE; /* Very light grey text for button */
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 15px;
+}
+
+form button:hover {
+    background-color: #1A1A1A; /* Even darker grey on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Form Footer Links - Adjusted for dark background */
+.form-footer-text {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9em;
+    color: #888888; /* Medium grey text */
+    line-height: 1.5;
+}
+
+.form-footer-text a {
+    color: #BBBBBB; /* Lighter grey link for contrast */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.form-footer-text a:hover {
+    color: #CCCCCC; /* Even lighter grey on hover */
+    text-decoration: underline;
+}
+
+/* Index Page Specific Styles - Adjusted for dark background */
+.index-content {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.index-content h1 {
+    font-size: 3em;
+    color: #EEEEEE; /* Very light grey */
+    margin-bottom: 20px;
+}
+
+.index-content p {
+    font-size: 1.1em;
+    color: #BBBBBB; /* Light grey */
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.index-actions {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.index-actions a {
+    background-color: #333333; /* Dark grey button */
+    color: #EEEEEE; /* Very light grey text */
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.index-actions a:hover {
+    background-color: #1A1A1A; /* Even darker grey on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.index-actions a.sign-up-btn {
+    background-color: #555555; /* Slightly lighter dark grey for sign up */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.index-actions a.sign-up-btn:hover {
+    background-color: #444444;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Dashboard Page Specific Styles - Fixed UI and no white */
+.dashboard-card {
+    text-align: center;
+    padding: 20px;
+    background-color: #1A1A1A; /* Matching container background - NO WHITE */
+    color: #CCCCCC; /* Default text color for dashboard content */
+}
+
+.dashboard-card h1 {
+    font-size: 2.8em;
+    color: #EEEEEE; /* Explicitly very light grey for main welcome heading */
+    margin-bottom: 20px;
+}
+
+.dashboard-card p {
+    font-size: 1.1em;
+    color: #BBBBBB; /* Explicitly light grey for descriptive text */
+    margin-bottom: 30px;
+}
+
+.dashboard-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.dashboard-actions a {
+    background-color: #333333;
+    color: #EEEEEE;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-actions a:hover {
+    background-color: #1A1A1A;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+}
+
+.dashboard-actions a.logout-btn {
+    background-color: #555555;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-actions a.logout-btn:hover {
+    background-color: #444444;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+}

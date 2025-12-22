@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Welcome{% endblock %}
+{% block content %}
+    <div class="index-content">
+        <h1>Welcome to the Authentication App</h1>
+        <p>This is a simple Flask application. Please choose an option below to get started.</p> {# Slightly rephrased for brevity #}
+
+        {% if 'username' not in session %}
+            <div class="index-actions">
+                <a href="{{ url_for('login') }}">Login</a> {# Changed "Sign In" to "Login" for consistency #}
+                <a href="{{ url_for('signup') }}" class="sign-up-btn">Sign Up</a>
+                {# REMOVED: <a href="{{ url_for('forgot_password') }}" class="forgot-password-btn">Forgot Password</a> #}
+            </div>
+        {% else %}
+            <p>You are logged in as <strong>{{ session['username'] }}</strong>.</p>
+            <div class="index-actions">
+                <a href="{{ url_for('dashboard') }}">Go to Dashboard</a>
+                <a href="{{ url_for('logout') }}" class="forgot-password-btn">Log Out</a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
