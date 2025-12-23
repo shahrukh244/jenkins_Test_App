@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  # Flask Application Service
   flask-app:
-    build: .
+    build: .                          # ← ALWAYS runs Dockerfile
+    image: "auth-app:${IMAGE_TAG:-v1}" # ← Tags with your version
     container_name: python-app
     ports:
       - "5000:5000"
@@ -13,7 +13,6 @@ services:
       - FLASK_RUN_HOST=0.0.0.0
       - FLASK_RUN_PORT=5000
       - PYTHONUNBUFFERED=1
-      # DB config passed to app.py (matches MySQL service)
       - MYSQL_HOST=mysql
       - MYSQL_DATABASE=flask_db
       - MYSQL_USER=flask_user
@@ -21,13 +20,10 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
-    volumes:
-      - ./AuthApp/flask-app:/app
     restart: unless-stopped
     networks:
       - app-network
 
-  # MySQL Database Service
   mysql:
     image: mysql:8.0
     container_name: mysql-db
@@ -50,12 +46,10 @@ services:
       timeout: 5s
       retries: 5
 
-# Define volumes for persistent data
 volumes:
   mysql-data:
     driver: local
 
-# Define network for inter-container communication
 networks:
   app-network:
     driver: bridge
