@@ -3,7 +3,7 @@
 docker build -t authapp:latest .
 
 
-# To Run 'docker-compose.yaml' File. Which Will Create Images And Run The Docker Container Aswell.
+# To Run 'docker_compose-local.yaml' File. Which Will Create Images And Run The Docker Container Aswell.
 # To Verify App at Given URL
 # http://localhost:5000 Or http://<IP-OF-NODE>:5000
 docker-compose up -d --build
