@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # Flask Application Service
   flask-app:
-    build: .
+    image: "${IMAGE_NAME:-auth-app}:${IMAGE_TAG:-latest}"
     container_name: python-app
     ports:
       - "5000:5000"
