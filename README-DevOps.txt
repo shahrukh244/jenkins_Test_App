@@ -7,6 +7,7 @@ docker build -t authapp:latest .
 # To Verify App at Given URL
 # http://localhost:5000 Or http://<IP-OF-NODE>:5000
 docker-compose up -d --build
+docker-compose down
 IMAGE_TAG=v2 docker-compose up -d --build
 
 
