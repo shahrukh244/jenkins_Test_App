@@ -1,4 +1,9 @@
 
+# To Run Only Dockerfile
+docker build -t authapp:latest .
+
+
+
 # To Run 'AuthApp' Using Docker-Compose File.
 # To Verify App at Given URL
 # http://localhost:5000
