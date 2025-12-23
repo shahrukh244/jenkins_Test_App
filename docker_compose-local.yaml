@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   flask-app:
-    build: .                          # ← ALWAYS runs Dockerfile
+    build: .                          
     image: "auth-app:${IMAGE_TAG:-v1}" # ← Tags with your version
     container_name: python-app
     ports:
