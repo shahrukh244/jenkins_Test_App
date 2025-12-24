@@ -3,7 +3,7 @@ version: '3.8'
 services:
   flask-app:
     build: .
-    image: "auth-app:${IMAGE_TAG:-v1}" # ← Tags with your version
+    image: "auth-app:${IMAGE_TAG:-1}" # ← Tags with your version
     container_name: python-app
     ports:
       - "5000:5000"
