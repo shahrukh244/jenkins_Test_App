@@ -12,7 +12,7 @@ IMAGE_TAG=v2 docker-compose up -d --build
 
 
 
-# To Create Jenkins Pipeline Use 'Jenkinsfile' File.
+# To Create Jenkins Pipeline Use 'jenkinsfile.groovy' File.
 # Create Jenkins Pipeline
 # Copy And Past 'Jenkinsfile' Script Into Jenkins Pipeline Script.
 
