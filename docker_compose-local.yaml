@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   flask-app:
-    build: .                          
+    build: .
     image: "auth-app:${IMAGE_TAG:-v1}" # ← Tags with your version
     container_name: python-app
     ports:
@@ -25,7 +25,7 @@ services:
       - app-network
 
   mysql:
-    image: mysql:8.0
+    image: sayedshahrukh93/mysql:8.0
     container_name: mysql-db
     environment:
       - MYSQL_ROOT_PASSWORD=root_password
